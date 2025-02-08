@@ -5,7 +5,7 @@ import requests
 
 LAST_RESPONSE_TIME = {}
 
-client = CHRLINE(authTokenOrEmail="FLgA44wAFESsEl4X4Tba.jz0EzK9MvwNRIWNaHqCDIG.Wwx+bzDTviTSOuj2+AyZgKRf+MlvL8nW9afD3qOBA7U=",
+client = CHRLINE(authTokenOrEmail="",
                 device="IOSIPAD",
                 useThrift=True)
 note1 = """📕ルール📕
