@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft ホワイトリスト管理</title>
+</head>
+<body>
+    <h1>Minecraft ホワイトリスト管理</h1>
+    <form action="{{ url_for('add_whitelist') }}" method="POST">
+        <label for="mcid">Minecraft ID:</label>
+        <input type="text" id="mcid" name="mcid" required><br><br>
+        
+        <label for="ip_address">IPアドレス:</label>
+        <input type="text" id="ip_address" name="ip_address" required><br><br>
+
+        <button type="submit">追加</button>
+    </form>
+
+    <h2>ホワイトリスト</h2>
+    <ul>
+        {% for entry in entries %}
+            <li>{{ entry.mcid }} - {{ entry.ip_address }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

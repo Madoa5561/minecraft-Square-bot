@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>認証ページ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Minecraft IDを入力してください</h1>
+    <form method="POST">
+        <label for="mcid">Minecraft ID:</label>
+        <input type="text" id="mcid" name="mcid" required><br><br>
+        
+        <button type="submit">決定</button>
+    </form>
+</body>
+</html>
