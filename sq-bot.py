@@ -45,22 +45,14 @@ def process_events(client):
                                 client.sendSquareMessage(to, append_random_emoji("動いてるよ"))
                             elif text == "認証":
                                 try:
-                                    # URL生成APIにリクエストを送る
                                     res = requests.get("http://127.0.0.1:7334/generate_url_59b22d41-2bc2-b996-fa5d-851ccbf02121")
-                                    
-                                    # サーバーが応答しない場合のエラーハンドリング
-                                    res.raise_for_status()  # ステータスコードが200番台でない場合、例外を発生させる
-                                    
-                                    # レスポンスをJSON形式で取得
+                                    res.raise_for_status()
                                     url = res.json().get("url", None)
-                                    
-                                    # URLが存在する場合
                                     if url:
                                         client.sendSquareMessage(to, f"以下のURLを押してマインクラフト上でのIDをいれてください\nYour ID:{msg._from}\n{url}")
                                     else:
                                         client.sendSquareMessage(to, "認証用のURLを取得できませんでした。もう一度お試しください。")
                                 except requests.exceptions.RequestException as e:
-                                    # リクエストに失敗した場合のエラーハンドリング
                                     print(f"リクエストエラー: {e}")
                                     client.sendSquareMessage(to, "認証のリクエストに失敗しました。後で再試行してください。")
                             elif text == note1 and not msg._from == "p18d719adbbd6003279714c4121e5023e":
@@ -104,3 +96,4 @@ def is_allowed_to_respond(to) -> bool:
     LAST_RESPONSE_TIME[to] = current_time
     return True
 process_events(client)
+
